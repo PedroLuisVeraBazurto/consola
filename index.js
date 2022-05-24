@@ -1,6 +1,6 @@
 require("colors");
 const axios = require('axios');
-const { menu ,TipoUsuario,Sesion,Menucliente, pausa,Registrar,Buscamos,ListaBuscar,VerReserva,Pago} = require("./menus");
+const { menu ,TipoUsuario,Sesion,Menucliente,sesionSuper, pausa,Registrar,Buscamos,ListaBuscar,VerReserva,Pago} = require("./menus");
 let usuarios;
 var tipo_sala;
 const principal = async () => {
@@ -86,14 +86,14 @@ do{
     //  await pausa(console.log(ressesion.length));
 }while(usuarios==0)
 
-/*
+
 do{
   restsesion = await SesionSuper();
      await pausa(console.log(restsesion));
       ressesion = await BuscarUsuario(restsesion);
        await pausa(console.log(ressesion.length));
  }while(ressesion.length==0)
-*/
+
  await pausa(console.log(usuarios[0]._id));
         restcliente = await Menucliente(usuarios); 
         await pausa(console.log(restcliente));
