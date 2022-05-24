@@ -77,12 +77,12 @@ const preguntas =[/* vector de preguntas menu */
 ];
 const sesionSuper =[/* vector de preguntas menu */
 {
-  name: "credenciales",
-  message: "Ingrese credenciales para iniciar sesion\n",
+  name: "Usuario",
+  message: "Ingrese Usuario para iniciar sesion\n",
   choices: [
     {
-      name: 'Usuario',
-      message: 'Ingrese el usuario:',
+      name: 'Correo',
+      message: 'Ingrese el correo:',
       default: ''
     },
     {
@@ -93,10 +93,60 @@ const sesionSuper =[/* vector de preguntas menu */
 
   ]
 }
-
-
-
 ];
+
+const Menu_sa =[/* vector de preguntas menu */
+    {
+      type: "list",
+      name: "opciones",
+      message: "Bienvenido estas son las opciones que pueden realizar\n",
+      loop : true,
+      choices: [
+        {
+          value: "1",
+          name: `${"1.".blue}) Suspender administrador`,
+        }
+  
+      ]
+      
+    }
+    
+  ]
+
+const menusa = async()=>{
+  console.clear();
+  console.log(`${'°°°°°°°°°°°°°°°°°°°°°°°°°°°°°'.brightBlue}`);
+  console.log(`   ${'ToDid'.underline} ${'Aplication'.brightBlue}`);
+  console.log(`${'°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n'.blue}`);
+  console.log( `Hoy es : `+moment().format('dddd Do MMMM'));
+console.log(`${'-------------------------'.yellow}`);
+  const {opciones} = await inquerer.prompt(preguntas)
+  
+  return opciones
+
+}
+const menusuper = async(usuarios)=>{
+console.clear();
+const {opciones} = await inquerer.prompt([/* vector de preguntas menu */
+{
+  type: "list",
+  name: "opciones",
+  message: `Bienvenido ${usuarios[0].Usuario}\n stas son las opciones que pueden realizar\n`,
+  loop : true,
+  choices: [
+    {
+      value: "1",
+      name: `${"1.".blue}) suspender administrador`,
+    }
+
+  ]
+}
+])
+
+return opciones
+
+}
+
 
 const Registro =[/* vector de preguntas menu */
 {
@@ -440,7 +490,7 @@ const ListaBuscar= async(salas)=>{
   //llamar desde process que es un objeto de node
   process.exit(0);
 };
-module.exports = {menu,TipoUsuario,Sesion,Menucliente,pausa,Registrar,Buscamos,ListaBuscar,
+module.exports = {menu,TipoUsuario,Sesion,sesionSuper,Menucliente,pausa,Registrar,Buscamos,ListaBuscar,
   VerSala,VerReserva,Pago
  
 };
