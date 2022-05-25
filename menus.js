@@ -121,7 +121,7 @@ const menusa = async()=>{
   console.log( `Hoy es : `+moment().format('dddd Do MMMM'));
 console.log(`${'-------------------------'.yellow}`);
   const {opciones} = await inquerer.prompt(preguntas)
-  
+
   return opciones
 
 }

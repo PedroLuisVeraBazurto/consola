@@ -1,6 +1,6 @@
 require("colors");
 const axios = require('axios');
-const { menu ,TipoUsuario,Sesion,Menucliente,sesionSuper, pausa,Registrar,Buscamos,ListaBuscar,VerReserva,Pago} = require("./menus");
+const { menu ,TipoUsuario,Sesion,Menucliente,SesionSuper, pausa,Registrar,Buscamos,ListaBuscar,VerReserva,Pago} = require("./menus");
 let usuarios;
 var tipo_sala;
 const principal = async () => {
@@ -49,7 +49,7 @@ return resmenu;
 
 const 
 segundo = async () => {
-  
+    let restadmin;
     let restcliente;
     let restipo;
     do{
@@ -139,8 +139,18 @@ resala = await salas_tipo(resultado);
           
           await pausa(console.log(resala));
           guaradarReserva = await GuaradarSala(resala,usuarios);
-         
+
+          case"3":
+          await pausa(console.log("Suspender cuenta"));
+          //sesion del superadministrador
+          restsesiones
+          //Envias menus de opciones  de superadmin
+          //crear un menu con las opciones del superadministrador
+          //crear funcion buscar  admin.
+          //funcion para mostrar los resultados(esta va en menu)
+          //funcion q realice la operacion
           break;
+
           case "3": // agregar tarea pagar
           await pausa(console.log(" aqui va lo de pagar "));
           reservaciones = await buscarReserva(usuarios);
@@ -161,17 +171,6 @@ resala = await salas_tipo(resultado);
     
       break;
 
-
-      case"3":
-      await pausa(console.log("Aqui va tu wbd"));
-
-      //sesion del superadministrador
-      //Envias menus de opciones  de superadmin
-      //crear un menu con las opciones del superadministrador
-      //crear funcion buscar  admin.
-      //funcion para mostrar los resultados(esta va en menu)
-      //funcion q realice la operacion
-      break;
       case "4": // agregar tarea
       restsesion = await principal();
     switch(restsesion){
